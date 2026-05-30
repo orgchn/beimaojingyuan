@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Beimao Jingyuan | Enterprise Precision Health Management Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            color: #1a2c2a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-dark: #0b4e3c;
+            --primary: #1e7b5c;
+            --primary-light: #e0f2ec;
+            --accent: #e67e22;
+            --accent-light: #fff3e0;
+            --gray-900: #1e2a2a;
+            --gray-700: #4a5b5a;
+            --gray-400: #9aaeb0;
+            --gray-100: #f4f7f6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.95);
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+        .company-name {
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-weight: 500;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        @media (max-width: 800px) {
+            .nav-links { display: none; }
+        }
+
+        /* 通用区块样式 */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 48px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 32px;
+        }
+        .grid-2 { grid-template-columns: repeat(2,1fr); }
+        .grid-3 { grid-template-columns: repeat(3,1fr); }
+        .grid-4 { grid-template-columns: repeat(4,1fr); }
+        @media (max-width: 900px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            section { padding: 56px 0; }
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            transition: all 0.25s ease;
+            border: 1px solid #eef2f0;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .icon-large {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        /* 英雄区 */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f9f5 100%);
+            padding: 60px 0 80px;
+        }
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        .hero-left {
+            flex: 1.2;
+        }
+        .hero-right {
+            flex: 0.8;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-logo-img {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        .hero-logo-img:hover {
+            transform: scale(1.02);
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--gray-700);
+            margin-bottom: 28px;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        .btn-outline {
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        @media (max-width: 800px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero-left { text-align: center; }
+            .hero-inner { flex-direction: column; }
+            .tagline { border-left: none; padding-left: 0; }
+        }
+
+        /* 英雄区数据卡片 */
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 48px;
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 30px 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+            border: 1px solid #eef2f0;
+        }
+        .stat-card-item {
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
+            padding: 12px 8px;
+            border-radius: 32px;
+            transition: background 0.2s;
+        }
+        .stat-card-item:hover {
+            background: var(--primary-light);
+        }
+        .stat-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        .stat-number-lg {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+        }
+        .stat-label-lg {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-top: 8px;
+        }
+        .stat-subnote {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            margin-top: 4px;
+        }
+
+        /* 关于我们内部的数据统计卡片组 */
+        .about-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 24px;
+            margin: 48px 0 20px;
+        }
+        .about-stat-card {
+            flex: 1;
+            min-width: 180px;
+            background: #ffffff;
+            border-radius: 36px;
+            padding: 28px 16px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            border: 1px solid #eef2f0;
+            transition: all 0.25s;
+        }
+        .about-stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+            border-color: var(--primary-light);
+        }
+        .about-stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        .about-stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+        }
+        .about-stat-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-top: 12px;
+        }
+        .about-stat-desc {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            margin-top: 6px;
+        }
+
+        /* 流程时间线 */
+        .flow-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .step {
+            background: white;
+            border-radius: 60px;
+            padding: 14px 28px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8e0;
+        }
+        .step-highlight {
+            background: var(--accent);
+            color: white;
+            border: none;
+        }
+
+        /* 客户logo墙 */
+        .client-wall {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px 40px;
+            margin-top: 32px;
+        }
+        .client-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--gray-700);
+            background: #f9fafb;
+            padding: 8px 20px;
+            border-radius: 40px;
+            transition: 0.1s;
+        }
+
+        /* 底部合作 */
+        .cooperation-box {
+            background: var(--primary-dark);
+            color: white;
+            border-radius: 48px;
+            padding: 48px 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .footer {
+            background: #0c2b23;
+            color: #cddfd9;
+            text-align: center;
+            padding: 40px 24px;
+            font-size: 0.85rem;
+        }
+
+        /* 突出口号样式 */
+        .slogan-banner {
+            background: linear-gradient(120deg, var(--primary-light) 0%, #ffffff 100%);
+            border-radius: 60px;
+            padding: 20px 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            border: 1px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .slogan-banner .main-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            letter-spacing: 2px;
+        }
+        .slogan-banner .sub-text {
+            font-size: 1rem;
+            color: var(--gray-700);
+            margin-top: 8px;
+        }
+
+        /* 供应能力模块的卡片 - 调小高度 */
+        .supply-card {
+            padding: 20px 24px;
+        }
+        .supply-card .stat-number {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+        .supply-card p {
+            font-size: 0.95rem;
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+
+        /* 修复“全周期健康管理”标题重叠问题 - 加大上边距 */
+        #services {
+            clear: both;
+            margin-top: 80px;
+        }
+
+        /* ========= 移动端修复：供应能力模块卡片垂直排列，防止叠加 ========= */
+        @media (max-width: 900px) {
+            #network .grid-2 {
+                grid-template-columns: 1fr;      /* 强制单列 */
+            }
+            #network .grid-2 > div {
+                display: flex;
+                flex-direction: column;
+                gap: 32px;                      /* 上下卡片间距 */
+            }
+            #services {
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="nav-inner">
+        <div class="logo-area">
+            <img class="logo-img" src="logo.png" alt="Beimao Jingyuan Logo">
+            <span class="company-name">Beimao Jingyuan</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#advantages">Advantages</a>
+            <a href="#network">Resources</a>
+            <a href="#services">Services</a>
+            <a href="#platform">Platform</a>
+            <a href="#cooperation">Partner</a>
+        </div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <h1>Building a Health Ecosystem<br>Drive Corporate Health Future</h1>
+                <div class="tagline">Enterprise-level Personalized Precision Health Management Solution Provider</div>
+                <div class="btn-group">
+                    <a href="#cooperation" class="btn-primary">Become a Partner</a>
+                    <a href="#services" class="btn-outline">Explore Services</a>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card-item">
+                        <div class="stat-icon">🏙️</div>
+                        <div class="stat-number-lg">300+</div>
+                        <div class="stat-label-lg">Cities Covered</div>
+                        <div class="stat-subnote">Nationwide Reach</div>
+                    </div>
+                    <div class="stat-card-item">
+                        <div class="stat-icon">🏥</div>
+                        <div class="stat-number-lg">2,000+</div>
+                        <div class="stat-label-lg">Chain Outlets</div>
+                        <div class="stat-subnote">Standardized Centers</div>
+                    </div>
+                    <div class="stat-card-item">
+                        <div class="stat-icon">🤝</div>
+                        <div class="stat-number-lg">1,000+</div>
+                        <div class="stat-label-lg">Hospital Alliance</div>
+                        <div class="stat-subnote">Public + Private</div>
+                    </div>
+                    <div class="stat-card-item">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-number-lg">450+</div>
+                        <div class="stat-label-lg">Public Tertiary Hospitals</div>
+                        <div class="stat-subnote">Top-Tier Medical Access</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img class="hero-logo-img" src="logo.png" alt="Beimao Jingyuan Logo">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- About Us -->
+    <section id="about">
+        <div class="section-title">About Us</div>
+        <div class="grid-2" style="margin-bottom: 32px;">
+            <div class="card">
+                <div class="icon-large">🏥</div>
+                <h3>Professional Service Team</h3>
+                <p>Comprising senior experts in medicine and health management with 10+ years of industry experience. Served 300+ large enterprises (Huawei, Pfizer, Nike, Mondelez, etc.).</p>
+            </div>
+            <div class="card">
+                <div class="icon-large">🤝</div>
+                <h3>Premium Supplier Network</h3>
+                <p>2,000+ chain outlets, 1,000+ public/private hospitals (incl. 450+ tertiary public hospitals), covering 300+ cities nationwide.</p>
+            </div>
+            <div class="card">
+                <div class="icon-large">📦</div>
+                <h3>Diversified Service Portfolio</h3>
+                <p>Health checkups, expert consultations, genetic testing, vaccinations, dental & eye care, health marketplace – all to meet multi-level needs.</p>
+            </div>
+            <div class="card">
+                <div class="icon-large">⚙️</div>
+                <h3>Secure & Efficient Platform</h3>
+                <p>In-house tech team, Class 3 security certification, 99.99% SLA, containerized deployment, end-to-end encryption ensuring data privacy.</p>
+            </div>
+        </div>
+        <div class="about-stats">
+            <div class="about-stat-card">
+                <div class="about-stat-icon">🏢</div>
+                <div class="about-stat-number">300+</div>
+                <div class="about-stat-label">Enterprise Clients</div>
+                <div class="about-stat-desc">Trusted by Industry Leaders</div>
+            </div>
+            <div class="about-stat-card">
+                <div class="about-stat-icon">👥</div>
+                <div class="about-stat-number">50,000+</div>
+                <div class="about-stat-label">Employees Served</div>
+                <div class="about-stat-desc">Cross-Industry Coverage</div>
+            </div>
+            <div class="about-stat-card">
+                <div class="about-stat-icon">💻</div>
+                <div class="about-stat-number">31</div>
+                <div class="about-stat-label">Tech R&D Team</div>
+                <div class="about-stat-desc">In-house Development</div>
+            </div>
+            <div class="about-stat-card">
+                <div class="about-stat-icon">📜</div>
+                <div class="about-stat-number">12</div>
+                <div class="about-stat-label">Software Copyrights</div>
+                <div class="about-stat-desc">Continuous Innovation</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Advantages -->
+    <section id="advantages">
+        <div class="section-title">Four Core Advantages</div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="icon-large">🌐</div>
+                <h3>Nationwide Medical Resource Integration</h3>
+                <p>Service network across 300+ cities, integrating 2,000+ examination outlets and 1,000+ hospital alliances (including 450+ public tertiary hospitals) – “Nationwide reach, local touch”.</p>
+            </div>
+            <div class="card">
+                <div class="icon-large">🤖</div>
+                <h3>AI-Enhanced Health Management</h3>
+                <p>Powered by a million-scale health knowledge base: AI risk analysis, smart package recommendations, report interpretation, and AI health assistant – moving from checkups to continuous care.</p>
+            </div>
+            <div class="card">
+                <div class="icon-large">🔒</div>
+                <h3>Enterprise Custom Platform & Security</h3>
+                <p>Microservices architecture, Class 3 security certification, penetration testing, end-to-end encryption; multi-end support (PC/mini-program/APP) with full customization.</p>
+            </div>
+            <div class="card">
+                <div class="icon-large">👥</div>
+                <h3>Professional Closed-Loop Service Assurance</h3>
+                <p>Integrated “Marketing + Operations + Medical + Tech + Customer Support” team, 3-party 7-step complaint closure, full traceability – saving you time and ensuring employee peace of mind.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supply Network -->
+    <section id="network">
+        <div class="section-title">Supply Capabilities · Comprehensive Service Network</div>
+        <div class="slogan-banner">
+            <div class="main-text">Nationwide Reach · Local Touch</div>
+            <div class="sub-text">Deep health service coverage across core cities and county-level markets, breaking geographical barriers</div>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="card supply-card"><span class="stat-number">2,000+</span><p>Professional Chain Outlets</p></div>
+                <div class="card supply-card"><span class="stat-number">1,000+</span><p>Public & Private Hospital Alliance <strong style="color: var(--accent);">(including 450+ Public Tertiary Hospitals)</strong></p></div>
+            </div>
+            <div>
+                <div class="card supply-card"><span class="stat-number">300+</span><p>Full coverage of tier-1 cities to county-level markets, no dead zones</p></div>
+                <div class="card supply-card"><span class="stat-number">Full-Process</span><p>From screening to green-channel treatment, bridging detection-therapy-rehabilitation closed loop</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Product System: Full-cycle -->
+    <section id="services">
+        <div class="section-title">Full-Cycle Health Management · Beyond Checkups</div>
+        <div class="flow-steps">
+            <span class="step">Pre-Exam Prep</span> <span class="step">Easy Booking</span> <span class="step">In-Process Tracking</span> 
+            <span class="step step-highlight">Expert 1:1 Report Review</span> <span class="step step-highlight">Medical Green Channel</span>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🔍 Expert One-on-One Report Interpretation</h3>
+                <p>Senior physicians provide in-depth analysis of health indicators, offering tailored advice on diet, exercise, follow-ups, and daily wellness – helping employees truly understand their health.</p>
+            </div>
+            <div class="card">
+                <h3>🚑 Nationwide Medical Green Channel</h3>
+                <p>Fast-track access to expert appointments, hospitalization coordination, and surgery arrangements at top-tier hospitals, solving “difficult access to care” – seamless from checkup to treatment.</p>
+            </div>
+        </div>
+        <div class="grid-3" style="margin-top: 32px;">
+            <div class="card"><h3>📋 Health Questionnaire / HRA</h3><p>Scientific health risk assessment with personalized improvement plans.</p></div>
+            <div class="card"><h3>💉 Vaccinations & Dental/Eye Care</h3><p>HPV, flu shot booking; dental checkups, vision care – one-stop service.</p></div>
+            <div class="card"><h3>🧬 Genetic Testing & Expert Consultations</h3><p>Online text/voice consultations with real-time answers from top-tier specialists.</p></div>
+        </div>
+    </section>
+
+    <!-- Intelligent Platform -->
+    <section id="platform">
+        <div class="section-title">Fully Customizable Digital Platform · Employee-Friendly, HR-Efficient</div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>📱 Employee Portal (Mini-Program / WeChat / App)</h3>
+                <ul style="margin-top: 12px; margin-left: 20px;">
+                    <li>AI-assisted booking (voice/text) · Smart facility recommendations</li>
+                    <li>AI report interpretation + dedicated 1:1 physician consultation</li>
+                    <li>WeChat/SMS reminders throughout (booking, pre-exam, results)</li>
+                    <li>Health marketplace (vaccines, dental cleaning, wellness products)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📊 HR Admin Dashboard & AI Operations</h3>
+                <ul style="margin-top: 12px; margin-left: 20px;">
+                    <li>Real-time insights: attendance rate, risk distribution, multi-year trend comparison</li>
+                    <li>AI pre-employment report screening – automatic pass/fail indication</li>
+                    <li>AI-generated promotional content (images/videos)</li>
+                    <li>Complaint closure system (3-party, 7-step process)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="margin-top: 24px; background: #fef9e6;">
+            <div class="grid-2">
+                <div><span class="stat-number">Class 3 Security</span><br>Certified Protection</div>
+                <div><span class="stat-number">ISO27001</span><br>Certified ISMS</div>
+                <div><span class="stat-number">SLA 99.99%</span><br>High Availability</div>
+                <div><span class="stat-number">Pen Testing</span><br>Continuous Hardening</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients & Trust -->
+    <section>
+        <div class="section-title">Some of Our Trusted Clients</div>
+        <div class="client-wall">
+            <span class="client-name">Huawei</span> <span class="client-name">Qualcomm</span> <span class="client-name">Dell</span> <span class="client-name">Kuaishou</span> <span class="client-name">DiDi</span>
+            <span class="client-name">Pfizer</span> <span class="client-name">Novartis</span> <span class="client-name">Merck</span> <span class="client-name">Johnson & Johnson</span> <span class="client-name">AstraZeneca</span>
+            <span class="client-name">Nike</span> <span class="client-name">Mars</span> <span class="client-name">Danone</span> <span class="client-name">Mondelez</span> <span class="client-name">L'Oréal</span>
+            <span class="client-name">Xincheng Real Estate</span> <span class="client-name">Nippon Paint</span> <span class="client-name">Hansoh Pharma</span> <span class="client-name">Bosch</span>
+        </div>
+        <div class="text-center" style="margin-top: 48px;">
+            <div class="stat-number" style="font-size: 3rem;">50,000+</div>
+            <p>Trusted by over 50,000 enterprise employees · Deep expertise in Pharma/Tech/Manufacturing/FMCG and other industry leaders</p>
+        </div>
+    </section>
+
+    <!-- Partnership Invitation -->
+    <section id="cooperation">
+        <div class="cooperation-box">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;">Partnership Opportunities</h2>
+            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px;">We deliver end-to-end from solution design to service implementation and support. Serve corporate clients, share the value of health.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" style="background: white; color: var(--primary-dark); padding: 12px 32px; border-radius: 40px; text-decoration: none; font-weight: 700;">Inquire Now</a>
+                <a href="#" style="border: 1px solid white; color: white; padding: 12px 32px; border-radius: 40px; text-decoration: none;">Request Partner Kit</a>
+            </div>
+            <p style="margin-top: 32px; font-size: 0.9rem;">Beimao Jingyuan (Beijing) Health Consulting Inc. · Specialized in Enterprise Precision Health Management</p>
+        </div>
+    </section>
+</div>
+
+<div class="footer">
+    <p>Building a Health Ecosystem · Driving Corporate Health Future</p>
+    <p style="margin-top: 12px;">Beimao Jingyuan (Beijing) Health Consulting INC. | Enterprise Personalized Precision Health Management Solution Provider</p>
+    <p style="margin-top: 20px; font-size: 0.75rem;">© Beimao Jingyuan. All rights reserved. | Class 3 Security Certification | Data Privacy Compliant</p>
+</div>
+
+</body>
+</html>
